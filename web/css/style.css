@@ -469,6 +469,7 @@ h2.head{
 	text-transform:uppercase;
 	border-bottom: 2px solid #0572a5;
 }
+
 .sold-box {
 	height: 100px;
 	right: -5px;
@@ -482,8 +483,8 @@ h2.head{
 	right: 89px;
 	background: #CB3D27;
 }
-.sold-box span.on_sale {
-	background:#5EB0C4;
+.sold-box span.on_sold {
+	background:#F00;
 	color: #FFF;
 	display: block;
 	left: -9px;
@@ -500,8 +501,10 @@ h2.head{
 	width: 140px;
 	z-index: 2;
 	text-transform:uppercase;
-	border-bottom: 2px solid #0572a5;
+	border-bottom: 2px solid #900;
 }
+
+
 .cart-left{
 	width:73.5%;
 	float: left;
@@ -548,11 +551,11 @@ span.reducedfrom {
 }
 .sale-box1 {
 	height: 100px;
-	left: 0px;
+	right: -5px;
 	overflow: hidden;
 	position: absolute;
 	text-align: center;
-	top: 0px;
+	top: -5px;
 	width: 100px;
 }
 .sale-box1 span.before {
@@ -560,7 +563,7 @@ span.reducedfrom {
 	background: #CB3D27;
 }
 .sale-box1 span.on_sale {
-	background:#5EB0C4;
+	background:#0F0;
 	color: #FFF;
 	display: block;
 	left: -9px;
@@ -577,8 +580,10 @@ span.reducedfrom {
 	width: 140px;
 	z-index: 2;
 	text-transform:uppercase;
-	border-bottom: 2px solid #0572a5;
+	border-bottom: 2px solid #0C3;
 }
+
+
 .top-box{
 	margin-bottom:2%;
 }

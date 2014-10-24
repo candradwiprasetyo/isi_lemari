@@ -6,86 +6,38 @@
 				</div>
 				<div class="menu">
 	            <ul class="megamenu skyblue">
-			<li><a href="index.html">Beranda</a></li>
-			<li><a class="color4" href="#">Wanita</a>
+			<li><a href="index.php">Beranda</a></li>
+            <?php
+            $query_menu = mysql_query("select * from categories order by category_id");
+			while($row_menu = mysql_fetch_array($query_menu)){
+			?>
+			
+            <li><a class="color4" href="index.php?page=page/category&category_id=<?= $row_menu['category_id']?>"><?= $row_menu['category_name'] ?></a>
 				<div class="megapanel">
 					<div class="row">
 						<div class="col1">
 							<div class="h_nav">
-								<h4>Contact Lenses</h4>
+								
 								<ul>
-									<li><a href="womens.html">Daily-wear soft lenses</a></li>
-									<li><a href="womens.html">Extended-wear</a></li>
-									<li><a href="womens.html">Lorem ipsum </a></li>
-									<li><a href="womens.html">Planned replacement</a></li>
+                                <?php
+                                $query_sub_menu = mysql_query("select * from sub_categories where category_id = '".$row_menu['category_id']."' order by sub_category_id");
+								while($row_sub_menu = mysql_fetch_array($query_sub_menu)){
+								?>
+									<li><a href="index.php?page=page/sub_category&sub_category_id=<?= $row_sub_menu['sub_category_id']?>"><?= $row_sub_menu['sub_category_name'] ?></a></li>
+									<?php
+								}
+									?>
 								</ul>	
 							</div>							
 						</div>
-						<div class="col1">
-							<div class="h_nav">
-								<h4>Sun Glasses</h4>
-								<ul>
-									<li><a href="womens.html">Heart-Shaped</a></li>
-									<li><a href="womens.html">Square-Shaped</a></li>
-									<li><a href="womens.html">Round-Shaped</a></li>
-									<li><a href="womens.html">Oval-Shaped</a></li>
-								</ul>	
-							</div>							
-						</div>
-						<div class="col1">
-							<div class="h_nav">
-								<h4>Eye Glasses</h4>
-								<ul>
-									<li><a href="womens.html">Anti Reflective</a></li>
-									<li><a href="womens.html">Aspheric</a></li>
-									<li><a href="womens.html">Bifocal</a></li>
-									<li><a href="womens.html">Hi-index</a></li>
-									<li><a href="womens.html">Progressive</a></li>
-								</ul>	
-							</div>												
-						</div>
+					
 					  </div>
 					</div>
 				</li>				
-				<li><a class="color5" href="#">Pria</a>
-				<div class="megapanel">
-					<div class="col1">
-							<div class="h_nav">
-								<h4>Contact Lenses</h4>
-								<ul>
-									<li><a href="mens.html">Daily-wear soft lenses</a></li>
-									<li><a href="mens.html">Extended-wear</a></li>
-									<li><a href="mens.html">Lorem ipsum </a></li>
-									<li><a href="mens.html">Planned replacement</a></li>
-								</ul>	
-							</div>							
-						</div>
-						<div class="col1">
-							<div class="h_nav">
-								<h4>Sun Glasses</h4>
-								<ul>
-									<li><a href="mens.html">Heart-Shaped</a></li>
-									<li><a href="mens.html">Square-Shaped</a></li>
-									<li><a href="mens.html">Round-Shaped</a></li>
-									<li><a href="mens.html">Oval-Shaped</a></li>
-								</ul>	
-							</div>							
-						</div>
-						<div class="col1">
-							<div class="h_nav">
-								<h4>Eye Glasses</h4>
-								<ul>
-									<li><a href="mens.html">Anti Reflective</a></li>
-									<li><a href="mens.html">Aspheric</a></li>
-									<li><a href="mens.html">Bifocal</a></li>
-									<li><a href="mens.html">Hi-index</a></li>
-									<li><a href="mens.html">Progressive</a></li>
-								</ul>	
-							</div>												
-						</div>
-					</div>
-				</li>
-				<li><a class="color6" href="other.html">Anak - anak</a></li>
+				<?php
+			}
+				?>
+				
 				
 			</ul>
 			</div>

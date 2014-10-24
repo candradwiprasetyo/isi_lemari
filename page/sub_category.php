@@ -2,21 +2,23 @@
   <div class="section group">
   <div class="cont span_2_of_3">
   			 <?php
-            $query_menu_home = mysql_query("select * from categories order by category_id");
+            $query_menu_home = mysql_query("select a.*, b.category_name from sub_categories a
+			join categories b on b.category_id = a.category_id 
+			where sub_category_id = '".$_GET['sub_category_id']."' order by sub_category_id");
 			while($row_menu_home = mysql_fetch_array($query_menu_home)){
 			?>
-		  	<h2 class="head"><?= $row_menu_home['category_name'] ?></h2>
+		  	<h2 class="head"><?= $row_menu_home['category_name']." - ".$row_menu_home['sub_category_name'] ?></h2>
 			
             <?php
 			$u=1;
 			$query_jumlah_product = mysql_query("select count(*) as jumlah from products a
 							join sub_categories b on b.sub_category_id = a.sub_category_id
-							 where b.category_id = '".$row_menu_home['category_id']."' order by product_id");
+							 where a.sub_category_id = '".$row_menu_home['sub_category_id']."' order by product_id");
 			$row_jumlah_product = mysql_fetch_object($query_jumlah_product);
 			$jumlah = $row_jumlah_product->jumlah;
             $query_product = mysql_query("select * from products a
 							join sub_categories b on b.sub_category_id = a.sub_category_id
-							 where b.category_id = '".$row_menu_home['category_id']."' order by product_id");
+							 where a.sub_category_id = '".$row_menu_home['sub_category_id']."' order by product_id");
 			while($row_product = mysql_fetch_array($query_product)){
 				$urutan = $u%3;
 				if($urutan==1 || $u==1){ ?>

@@ -32,7 +32,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="../index.php?page=pages/latest_work">
+                            <a href="index.php?page=pages/slider">
                                 <i class="fa fa-chevron-circle-right"></i> <span>Slider</span> 
                             </a>
                         </li>

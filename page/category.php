@@ -2,7 +2,7 @@
   <div class="section group">
   <div class="cont span_2_of_3">
   			 <?php
-            $query_menu_home = mysql_query("select * from categories order by category_id");
+            $query_menu_home = mysql_query("select * from categories where category_id = '".$_GET['category_id']."' order by category_id");
 			while($row_menu_home = mysql_fetch_array($query_menu_home)){
 			?>
 		  	<h2 class="head"><?= $row_menu_home['category_name'] ?></h2>
